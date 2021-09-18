@@ -6,46 +6,38 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/17 12:07:39 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/18 10:41:01 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
+static void	ft_print(t_format *fmt, va_list ap)
+{
+	char		*pcnt_ptr;
+//	char		*pre_str;
+	(void) ap;
+	pcnt_ptr = ft_strchr(fmt->fstr, '%');
+	if (!pcnt_ptr)
+	{
+		ft_putstr_fd(fmt->fstr, 1);
+		fmt->num_printed = ft_strlen(fmt->fstr);
+		fmt->fstr += fmt->num_printed;
+	}
+}
+
 int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
-	char	*s;
-	char	c;
-	int		i;
+	va_list		ap;
+	t_format	fmt;
 
 	va_start(ap, format);
-	while (*format)
-	{
-		if(*format == '%')
-		{
-			format++;
-			if (*format == 's')
-			{
-				s = va_arg(ap, char *);
-				ft_putstr_fd(s, 1);
-			}
-			if (*format == 'i')
-			{
-				i = va_arg(ap, int);
-				ft_putnbr_fd(i, 1);
-			}
-			if (*format == 'c')
-			{
-				c = va_arg(ap, int);
-				ft_putchar_fd((char)c, 1);
-			}
-			format++;
-		}
-		else
-			ft_putchar_fd(*format++,1);
-	}
+	ft_bzero(&fmt, sizeof(t_format));
+	fmt.precision = -1;
+	fmt.fstr = format;
+	while (fmt.fstr != format + ft_strlen(format))
+		ft_print(&fmt, ap);
 	va_end(ap);
-	return (0);
+	return (fmt.num_printed);
 }
