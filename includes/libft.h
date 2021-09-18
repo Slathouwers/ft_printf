@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:23:47 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/06 16:07:53 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/18 21:33:54 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char const *s, int fd);
+void	ft_putstrn_fd(char const *s, size_t n, int fd);
 
 	  /////////////////
 	 //   Bonus     //
