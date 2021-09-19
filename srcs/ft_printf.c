@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/19 00:01:47 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/19 16:01:08 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,22 @@ void	ft_print_int(t_format *fmt, va_list ap)
 	ft_putstrl_fd(str, print_len, 1);
 	fmt->num_printed += print_len;
 	fmt->fstr++;
+	free(str);
+}
+
+void	ft_print_uint(t_format *fmt, va_list ap)
+{
+	char			*str;
+	unsigned int	ui;
+	size_t			print_len;
+
+	ui = va_arg(ap, unsigned int);
+	str = ft_uitoa(ui);
+	print_len = ft_unbr_len(ui);
+	ft_putstrl_fd(str, print_len, 1);
+	fmt->num_printed += print_len;
+	fmt->fstr++;
+	free(str);
 }
 
 void	ft_print_parse(t_format *fmt, va_list ap)
@@ -66,6 +82,8 @@ void	ft_print_parse(t_format *fmt, va_list ap)
 		ft_print_str(fmt, ap);
 	else if (*fmt->fstr == 'i' || *fmt->fstr == 'd')
 		ft_print_int(fmt, ap);
+	else if (*fmt->fstr == 'u')
+		ft_print_uint(fmt, ap);
 }
 
 static void	ft_print(t_format *fmt, va_list ap)
