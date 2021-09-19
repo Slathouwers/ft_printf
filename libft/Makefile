@@ -6,7 +6,7 @@
 #    By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/02 11:59:30 by slathouw          #+#    #+#              #
-#    Updated: 2021/09/18 23:55:36 by slathouw         ###   ########.fr        #
+#    Updated: 2021/09/19 15:19:25 by slathouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS 		= ft_isalnum.c ft_isprint.c ft_strlen.c ft_tolower.c ft_atoi.c 	\
 			ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c 	\
 			ft_putstrn_fd.c ft_putstrl_fd.c ft_lstadd_back.c ft_lstadd_front.c\
 			ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_nbr_len.c\
-			ft_lstmap.c ft_lstnew.c ft_lstsize.c
+			ft_unbr_len.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 OBJS		= ${SRCS:.c=.o}
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
