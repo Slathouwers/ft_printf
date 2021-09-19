@@ -12,21 +12,6 @@
 
 #include "libft.h"
 
-static int	ft_len(long int nbr)
-{
-	int		len;
-
-	len = 0;
-	if (nbr <= 0)
-		len++;
-	while (nbr)
-	{
-		nbr /= 10;
-		len++;
-	}
-	return (len);
-}
-
 static unsigned int	to_un(int n, int *sign)
 {
 	unsigned int	un;
@@ -50,7 +35,7 @@ char	*ft_itoa(int n)
 
 	sign = 0;
 	un = to_un(n, &sign);
-	len = ft_len(n);
+	len = ft_nbr_len(n);
 	c = (char *)malloc(sizeof(char) * len + 1);
 	if (c == NULL)
 		return (0);
