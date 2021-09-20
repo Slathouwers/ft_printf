@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:23:47 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/19 15:48:10 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/20 08:20:20 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	ft_strrev(char *str);
 
 	  /////////////////
 	 //   Part - 2  //
@@ -62,12 +63,14 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_uitoa(unsigned int un);
+char	*ft_ultoa_base(unsigned long int n, char *base);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putunbr_fd(unsigned int n, int fd);
+void	ft_putlong_base_fd(long int n, char *base, int fd);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putstrn_fd(char const *s, size_t n, int fd);
 size_t	ft_putstrl_fd(char const *s, size_t n, int fd);
