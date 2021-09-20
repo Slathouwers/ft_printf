@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 10:18:15 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 10:20:10 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:45:59 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ void	ft_print_hex(t_format *fmt, va_list ap)
 		return ;
 	print_len = ft_ultobase_len(ul, "0123456789ABCDEF");
 	if (*fmt->fstr == 'p' && print_len == 1 && *str == '0')
-	{
 		fmt->num_printed += ft_putstrl_fd("(nil)", 5, 1);
-	}
 	else if (*fmt->fstr == 'p')
 		fmt->num_printed += ft_putstrl_fd("0x", 2, 1);
-	else
+	if (!(*fmt->fstr == 'p' && print_len == 1 && *str == '0'))
 		fmt->num_printed += ft_putstrl_fd(str, print_len, 1);
 	fmt->fstr++;
 	free(str);
