@@ -12,23 +12,6 @@
 
 #include "libft.h"
 
-size_t	ft_ultobase_len(unsigned long int nbr, char *base)
-{
-	size_t	len;
-	size_t	baselen;
-
-	baselen = ft_strlen(base);
-	len = 0;
-	if (nbr == 0)
-		return (1);
-	while (nbr && baselen > 0)
-	{
-		nbr /= baselen;
-		len++;
-	}
-	return (len);
-}
-
 char	*ft_ultoa_base(unsigned long int n, char *base)
 {
 	size_t		baselen;
@@ -37,16 +20,18 @@ char	*ft_ultoa_base(unsigned long int n, char *base)
 
 	if (!base)
 		return (NULL);
+	baselen = ft_strlen(base);
 	len = ft_ultobase_len(n, base);
 	c = (char *)malloc(sizeof(char) * len + 1);
 	if (c == NULL)
 		return (0);
 	c[len] = '\0';
 	len--;
-	while (len >= 0)
+	while (len > 0)
 	{
-		c[len--] = '0' + base[(n % baselen)];
+		c[len--] =base[(n % baselen)];
 		n /= baselen;
 	}
+	c[len] = base[(n % baselen)];
 	return (c);
 }
