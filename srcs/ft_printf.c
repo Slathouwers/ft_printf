@@ -6,14 +6,14 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/19 16:01:08 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/20 09:01:49 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void	ft_print_fmt_len(t_format *fmt, size_t len)
+void	ft_printl_fmt(t_format *fmt, size_t len)
 {
 	size_t		print_len;
 
@@ -74,6 +74,32 @@ void	ft_print_uint(t_format *fmt, va_list ap)
 	free(str);
 }
 
+void	ft_print_hex(t_format *fmt, va_list ap)
+{
+	char			*str;
+	unsigned long	ul;
+	size_t			print_len;
+
+	if (*fmt->fstr == 'x' || *fmt->fstr == 'X')
+		ul = va_arg(ap, unsigned int);
+	else
+		ul = va_arg(ap, unsigned long int);
+	if (*fmt->fstr == 'x' || *fmt->fstr == 'p' )
+		str = ft_ultoa_base(ul, "0123456789abcdef");
+	else
+		str = ft_ultoa_base(ul, "0123456789ABCDEF");
+	print_len = ft_ultobase_len(ul, "0123456789ABCDEF");
+	if (*fmt->fstr == 'p')
+	{
+		ft_putstr_fd("0x", 1);
+		fmt->num_printed += 2;
+	}
+	ft_putstrl_fd(str, print_len, 1);
+	fmt->num_printed += print_len;
+	fmt->fstr++;
+	free(str);
+}
+
 void	ft_print_parse(t_format *fmt, va_list ap)
 {
 	if (*fmt->fstr == 'c' || *fmt->fstr == '%')
@@ -84,6 +110,8 @@ void	ft_print_parse(t_format *fmt, va_list ap)
 		ft_print_int(fmt, ap);
 	else if (*fmt->fstr == 'u')
 		ft_print_uint(fmt, ap);
+	else if (*fmt->fstr == 'x' || *fmt->fstr == 'X' || *fmt->fstr == 'p')
+		ft_print_hex(fmt, ap);
 }
 
 static void	ft_print(t_format *fmt, va_list ap)
@@ -92,10 +120,10 @@ static void	ft_print(t_format *fmt, va_list ap)
 
 	pcnt_ptr = ft_strchr(fmt->fstr, '%');
 	if (!pcnt_ptr)
-		ft_print_fmt_len(fmt, ft_strlen(fmt->fstr));
+		ft_printl_fmt(fmt, ft_strlen(fmt->fstr));
 	else
 	{
-		ft_print_fmt_len(fmt, (pcnt_ptr - fmt->fstr));
+		ft_printl_fmt(fmt, (pcnt_ptr - fmt->fstr));
 		fmt->fstr++;
 		ft_print_parse(fmt, ap);
 	}
