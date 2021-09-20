@@ -29,7 +29,7 @@ char	*ft_ultoa_base(unsigned long int n, char *base)
 	len--;
 	while (len > 0)
 	{
-		c[len--] =base[(n % baselen)];
+		c[len--] = base[(n % baselen)];
 		n /= baselen;
 	}
 	c[len] = base[(n % baselen)];
