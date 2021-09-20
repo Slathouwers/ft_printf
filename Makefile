@@ -6,14 +6,15 @@
 #    By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 09:55:38 by slathouw          #+#    #+#              #
-#    Updated: 2021/09/20 09:41:01 by slathouw         ###   ########.fr        #
+#    Updated: 2021/09/20 10:29:30 by slathouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= libftprintf.a
 LIBFT 	= libft
 INCLUDES= includes
-SOURCES	= ft_printf.c
+SOURCES	=	ft_printf.c ft_print_hex.c ft_print_uint.c ft_print_int.c \
+			ft_print_char.c
 SRCDIR 	= srcs
 OBJDIR	= obj
 SRCS 	= ${addprefix $(SRCDIR)/, $(SOURCES)}
