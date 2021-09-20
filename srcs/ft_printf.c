@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 09:01:49 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:10:16 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 void	ft_printl_fmt(t_format *fmt, size_t len)
 {
-	size_t		print_len;
-
-	print_len = ft_putstrl_fd(fmt->fstr, len, 1);
-	fmt->num_printed += print_len;
-	fmt->fstr += print_len;
+	len = ft_putstrl_fd(fmt->fstr, len, 1);
+	fmt->num_printed += len;
+	fmt->fstr += len;
 }
 
 void	ft_print_char(t_format *fmt, va_list ap)
@@ -35,12 +33,12 @@ void	ft_print_char(t_format *fmt, va_list ap)
 void	ft_print_str(t_format *fmt, va_list ap)
 {
 	char	*str;
-	size_t	print_len;
-
+	
 	str = va_arg(ap, char *);
-	print_len = ft_strlen(str);
-	ft_putstrl_fd(str, print_len, 1);
-	fmt->num_printed += print_len;
+	if (!str)
+		fmt->num_printed += ft_putstrl_fd("(null)", 6, 1);
+	else
+		fmt->num_printed += ft_putstrl_fd(str, ft_strlen(str), 1);
 	fmt->fstr++;
 }
 
@@ -52,9 +50,10 @@ void	ft_print_int(t_format *fmt, va_list ap)
 
 	i = va_arg(ap, int);
 	str = ft_itoa(i);
+	if (!str)
+		return ;
 	print_len = ft_nbr_len(i);
-	ft_putstrl_fd(str, print_len, 1);
-	fmt->num_printed += print_len;
+	fmt->num_printed += ft_putstrl_fd(str, print_len, 1);
 	fmt->fstr++;
 	free(str);
 }
@@ -67,9 +66,10 @@ void	ft_print_uint(t_format *fmt, va_list ap)
 
 	ui = va_arg(ap, unsigned int);
 	str = ft_uitoa(ui);
+	if (!str)
+		return ;
 	print_len = ft_unbr_len(ui);
-	ft_putstrl_fd(str, print_len, 1);
-	fmt->num_printed += print_len;
+	fmt->num_printed += ft_putstrl_fd(str, print_len, 1);
 	fmt->fstr++;
 	free(str);
 }
@@ -88,14 +88,19 @@ void	ft_print_hex(t_format *fmt, va_list ap)
 		str = ft_ultoa_base(ul, "0123456789abcdef");
 	else
 		str = ft_ultoa_base(ul, "0123456789ABCDEF");
+	if (!str)
+		return ;
 	print_len = ft_ultobase_len(ul, "0123456789ABCDEF");
-	if (*fmt->fstr == 'p')
+	if (*fmt->fstr == 'p' && print_len == 1 && *str == '0')
 	{
-		ft_putstr_fd("0x", 1);
-		fmt->num_printed += 2;
+		fmt->num_printed += ft_putstrl_fd("(nil)", 5, 1);
+		fmt->fstr++;
+		free(str);
+		return ;
 	}
-	ft_putstrl_fd(str, print_len, 1);
-	fmt->num_printed += print_len;
+	if (*fmt->fstr == 'p')
+		fmt->num_printed += ft_putstrl_fd("0x", 2, 1);
+	fmt->num_printed += ft_putstrl_fd(str, print_len, 1);
 	fmt->fstr++;
 	free(str);
 }

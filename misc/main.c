@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:41:02 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 08:56:41 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/20 10:06:52 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	unsigned int un = 4294967295;
 	char str[] = "0123456789ABCDEF";
 
-	/* -------------- Unsigned int
+	/* -------------- Unsigned int*/
 	char *strun = ft_uitoa(un);
 	//printf("%.10bd",10);
 	printf("%i\n",ft_printf("%%%s%i%u","Sander", 50, un));
@@ -28,12 +28,13 @@ int	main(void)
 	printf("\nun = %s\n", strun);
 	ft_putunbr_fd(un, 1);
 	ft_putchar_fd('\n', 1);
-	free(strun); */
+	free(strun);
+	
 	/*-----------HEX-------*/
 	/* ft_strrev(str);
 	printf("%s", str); */
 	//ft_putlong_base_fd(9223372036854775807, "0123456789ABCDEF", 1);
-	//printf("x = %x\n X = %X", -1, -1);
+	printf("x = %x\n X = %X", -1, -1);
 	//printf("\n%s\n",ft_ultoa_base((unsigned int)-1, str));
 	printf("---------x-------\n");
 	printf("x = %x\n", un);
@@ -42,9 +43,10 @@ int	main(void)
 	printf("X = %X\n", un);
 	ft_printf("X = %X\n", un);
 	printf("---------pointer-------\n");
-	printf("p = %p\n", &un);
-	ft_printf("p = %p\n", &un);
-	
-	
+	printf("p = %#p\n", 0);
+	ft_printf("p = %p\n", 0);
+	/*---- STRING ERROR -------*/
+	if(ft_printf("NULL %s NULL\n", NULL) == printf("NULL %s NULL\n", NULL))
+		printf("OK\n");
 	return (0);
 }
