@@ -6,12 +6,11 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 10:30:58 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/21 10:10:37 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	ft_printl_fmt(t_format *fmt, size_t len)
 {
