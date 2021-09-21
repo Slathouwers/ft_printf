@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:23:47 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 08:32:01 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/21 09:18:18 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,21 @@ typedef struct s_list
 	  /////////////////
 	 //   Part - 1  //
 	/////////////////
+/* ----------- TEST MALLOC FAIL ------------- */
+/* #include <stdio.h>
+static int	g_fail_after = 1;
+static int	g_num_allocs = 1;
+
+static void	*ft_xmalloc(size_t size)
+{
+	if (g_fail_after > 0 && g_num_allocs++ >= g_fail_after)
+	{
+		printf("Out of memory\n");
+		return (0);
+	}
+	return (malloc(size));
+}
+# define malloc(x)  ft_xmalloc(x) */
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
