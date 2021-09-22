@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:12:18 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 10:30:52 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/22 07:53:20 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef FT_PRINTF_BONUS_H
+# define FT_PRINTF_BONUS_H
 
 # include <stdlib.h>
 # include <stdarg.h>
@@ -22,6 +22,18 @@ typedef struct s_format
 	const char	*fstr;
 	int			num_printed;
 }				t_format;
+
+typedef struct s_field
+{
+	char		*percent_ptr;
+	char		*parse_ptr;
+	size_t		length;
+	int			left_align;
+	int			zero_padding;
+	int			min_width;
+	int			precision;
+	int			alt_form;
+}				t_field;
 
 int		ft_printf(const char *format, ...);
 void	ft_print_uint(t_format *fmt, va_list ap);
