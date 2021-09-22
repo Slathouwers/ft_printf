@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:41:02 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 08:11:46 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/22 12:54:54 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	main(void)
 {
+	char str[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 	int n = -2147483648;
 	unsigned int un = 4294967295;
-	char str[] = "0123456789ABCDEF";
 
 	/* -------------- Unsigned int*/
 	/* char *strun = ft_uitoa(un);
@@ -33,7 +33,7 @@ int	main(void)
 	/*-----------HEX-------*/
 	/* ft_strrev(str);
 	printf("%s", str); */
-	//ft_putlong_base_fd(9223372036854775807, "0123456789ABCDEF", 1);
+/* 	//ft_putlong_base_fd(9223372036854775807, "0123456789ABCDEF", 1);
 	printf("x = %x\n X = %X\n", -1, -1);
 	//printf("\n%s\n",ft_ultoa_base((unsigned int)-1, str));
 	printf("---------x-------\n");
@@ -44,9 +44,48 @@ int	main(void)
 	ft_printf("X = %X\n", un);
 	printf("---------pointer-------\n");
 	printf("p = %#p\n", &un);
-	ft_printf("p = %p\n", &un);
+	ft_printf("p = %p\n", &un); */
 	/*---- STRING ERROR -------*/
 /* 	if(ft_printf("NULL %s NULL\n", NULL) == printf("NULL %s NULL\n", NULL))
 		printf("OK\n"); */
+
+/* 	ft_printf("ft_printf: |%c|\n", 'x');
+	printf("___printf: |%c|\n", 'x');
+	printf("------------------------\n");
+	
+	ft_printf("ft_printf: |%3c|\n", 'x');
+	printf("___printf: |%3c|\n", 'x');
+	printf("------------------------\n");
+
+	ft_printf("ft_printf: |%03c|\n", 'x');
+	printf("___printf: |%03c|\n", 'x');
+	printf("------------------------\n");
+	
+	ft_printf("ft_printf: |%3.3c|\n", 'x');
+	printf("___printf: |%3.3c|\n", 'x');
+	printf("------------------------\n");
+	
+	ft_printf("ft_printf: |%-3c|\n", 'x');
+	printf("___printf: |%-3c|\n", 'x');
+	printf("------------------------\n");
+
+	ft_printf("ft_printf: |%#3.5=|\n", 'x');
+	printf("___printf: |%#3.5=|\n", 'x'); */
+
+	/*----------STRING------------*/
+	//printf("___printf: |%10.2s|\n", "SANDER");
+	//ft_printf("ft_printf: |%10.2s|\n", "SANDER");
+	
+/* 	int i = printf("%1s", "");
+	printf("num = %i\n", i);
+	printf("-------------"); */
+	int j;
+	j =  ft_printf(" % s \n", "-");
+	printf("-------------\n");
+	printf("num = %i\n", j);
+
+ 	j =  printf(" % s \n", "-");
+	printf("-------------\n");
+	printf("num = %i\n", j);
 	return (0);
 }
