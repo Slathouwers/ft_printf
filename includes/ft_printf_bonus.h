@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:12:18 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 07:53:20 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/22 08:32:49 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ typedef struct s_field
 }				t_field;
 
 int		ft_printf(const char *format, ...);
-void	ft_print_uint(t_format *fmt, va_list ap);
-void	ft_print_int(t_format *fmt, va_list ap);
-void	ft_print_hex(t_format *fmt, va_list ap);
-void	ft_print_char(t_format *fmt, va_list ap);
-void	ft_print_str(t_format *fmt, va_list ap);
-
+void	ft_print_uint(t_field *fld, t_format *fmt, va_list ap);
+void	ft_print_int(t_field *fld, t_format *fmt, va_list ap);
+void	ft_print_hex(t_field *fld, t_format *fmt, va_list ap);
+void	ft_print_char(t_field *fld, t_format *fmt, va_list ap);
+void	ft_print_str(t_field *fld, t_format *fmt, va_list ap);
+void	ft_field_parse(t_field *fld, char *pcnt_ptr);
 #endif

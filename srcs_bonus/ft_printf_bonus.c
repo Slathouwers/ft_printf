@@ -6,45 +6,53 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/21 10:10:16 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/22 08:31:31 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-void	ft_printl_fmt(t_format *fmt, size_t len)
+static void	ft_printl_nopercent(t_format *fmt, size_t len)
 {
 	len = ft_putstrl_fd(fmt->fstr, len, 1);
 	fmt->num_printed += len;
 	fmt->fstr += len;
 }
 
-void	ft_print_parse(t_format *fmt, va_list ap)
+static void	ft_print_parse(t_field *fld, t_format *fmt, va_list ap)
 {
-	if (*fmt->fstr == 'c' || *fmt->fstr == '%')
-		ft_print_char(fmt, ap);
-	else if (*fmt->fstr == 's')
-		ft_print_str(fmt, ap);
-	else if (*fmt->fstr == 'i' || *fmt->fstr == 'd')
-		ft_print_int(fmt, ap);
-	else if (*fmt->fstr == 'u')
-		ft_print_uint(fmt, ap);
-	else if (*fmt->fstr == 'x' || *fmt->fstr == 'X' || *fmt->fstr == 'p')
-		ft_print_hex(fmt, ap);
+	if (*fld->parse_ptr == 'c' || *fld->parse_ptr == '%')
+		ft_print_char(fld, fmt, ap);
+	else if (*fld->parse_ptr == 's')
+		ft_print_str(fld, fmt, ap);
+	else if (*fld->parse_ptr == 'i' || *fld->parse_ptr == 'd')
+		ft_print_int(fld, fmt, ap);
+	else if (*fld->parse_ptr == 'u')
+		ft_print_uint(fld, fmt, ap);
+	else if (*fld->parse_ptr == 'x' || *fld->parse_ptr == 'X'
+		|| *fld->parse_ptr == 'p')
+		ft_print_hex(fld, fmt, ap);
+	else
+	{
+		ft_putchar_fd(*fld->percent_ptr, 1);
+		fmt->fstr = fld->percent_ptr + 1;
+		fmt->num_printed++;
+	}
 }
 
 static void	ft_print(t_format *fmt, va_list ap)
 {
 	char		*pcnt_ptr;
+	t_field		fld;
 
 	pcnt_ptr = ft_strchr(fmt->fstr, '%');
 	if (!pcnt_ptr)
-		ft_printl_fmt(fmt, ft_strlen(fmt->fstr));
+		ft_printl_nopercent(fmt, ft_strlen(fmt->fstr));
 	else
 	{
-		ft_printl_fmt(fmt, (pcnt_ptr - fmt->fstr));
-		fmt->fstr++;
-		ft_print_parse(fmt, ap);
+		ft_printl_nopercent(fmt, (pcnt_ptr - fmt->fstr));
+		ft_field_parse(&fld, pcnt_ptr);
+		ft_print_parse(&fld, fmt, ap);
 	}
 }
 
