@@ -6,13 +6,13 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/21 10:10:37 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/22 07:22:49 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printl_fmt(t_format *fmt, size_t len)
+void	ft_printl_nopercent(t_format *fmt, size_t len)
 {
 	len = ft_putstrl_fd(fmt->fstr, len, 1);
 	fmt->num_printed += len;
@@ -39,10 +39,10 @@ static void	ft_print(t_format *fmt, va_list ap)
 
 	pcnt_ptr = ft_strchr(fmt->fstr, '%');
 	if (!pcnt_ptr)
-		ft_printl_fmt(fmt, ft_strlen(fmt->fstr));
+		ft_printl_nopercent(fmt, ft_strlen(fmt->fstr));
 	else
 	{
-		ft_printl_fmt(fmt, (pcnt_ptr - fmt->fstr));
+		ft_printl_nopercent(fmt, (pcnt_ptr - fmt->fstr));
 		fmt->fstr++;
 		ft_print_parse(fmt, ap);
 	}
