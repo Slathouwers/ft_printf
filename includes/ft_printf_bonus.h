@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:12:18 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 08:32:49 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/22 12:48:59 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_field
 	int			min_width;
 	int			precision;
 	int			alt_form;
+	int			space;
+	int			plus_sign;
 }				t_field;
 
 int		ft_printf(const char *format, ...);
