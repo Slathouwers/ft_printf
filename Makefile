@@ -6,7 +6,7 @@
 #    By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 09:55:38 by slathouw          #+#    #+#              #
-#    Updated: 2021/09/22 13:13:15 by slathouw         ###   ########.fr        #
+#    Updated: 2021/09/23 11:20:34 by slathouw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS 	= ${addprefix $(SRCDIR)/, $(SOURCES)}
 OBJS	= ${addprefix $(OBJDIR)/, $(SOURCES:.c=.o)}
 
 
-BONUSSOURCES = ft_printf_bonus.c ft_print_hex_bonus.c ft_print_uint_bonus.c ft_print_int_bonus.c \
+BONUSSOURCES = ft_printf_bonus.c ft_print_hex_bonus.c ft_print_int_bonus.c \
 			ft_print_char_bonus.c ft_print_str_bonus.c ft_field_parse_bonus.c
 BONUSSRCDIR = srcs_bonus
 BONUSSRCS = ${addprefix $(BONUSSRCDIR)/, $(BONUSSOURCES)}
