@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:41:02 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 12:54:54 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/23 09:13:46 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 
 int	main(void)
 {
-	char str[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+	/* char str[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
 	int n = -2147483648;
 	unsigned int un = 4294967295;
+	
+	char *buff = (char *) malloc(3);
+	buff[0] = 'a';
+	buff[1] = 'b';
+	buff[2] = 'a';
+	buff[3] = 'c'; */
 
 	/* -------------- Unsigned int*/
 	/* char *strun = ft_uitoa(un);
@@ -76,16 +82,20 @@ int	main(void)
 	//printf("___printf: |%10.2s|\n", "SANDER");
 	//ft_printf("ft_printf: |%10.2s|\n", "SANDER");
 	
-/* 	int i = printf("%1s", "");
+	/* 	int i = printf("%1s", "");
 	printf("num = %i\n", i);
 	printf("-------------"); */
-	int j;
+	/* int j;
 	j =  ft_printf(" % s \n", "-");
 	printf("-------------\n");
 	printf("num = %i\n", j);
 
  	j =  printf(" % s \n", "-");
 	printf("-------------\n");
-	printf("num = %i\n", j);
+	printf("num = %i\n", j); */
+
+	/*----------i,d,u-------*/
+	if (ft_printf("%+10.7d\n", 10) == printf("%+10.7d\n", 10))
+		printf("OK");
 	return (0);
 }

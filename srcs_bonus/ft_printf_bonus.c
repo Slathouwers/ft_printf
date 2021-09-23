@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:18:21 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 08:31:31 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/23 07:47:57 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ static void	ft_print_parse(t_field *fld, t_format *fmt, va_list ap)
 		ft_print_char(fld, fmt, ap);
 	else if (*fld->parse_ptr == 's')
 		ft_print_str(fld, fmt, ap);
-	else if (*fld->parse_ptr == 'i' || *fld->parse_ptr == 'd')
+	else if (*fld->parse_ptr == 'i' || *fld->parse_ptr == 'd'
+		|| *fld->parse_ptr == 'u')
 		ft_print_int(fld, fmt, ap);
-	else if (*fld->parse_ptr == 'u')
-		ft_print_uint(fld, fmt, ap);
 	else if (*fld->parse_ptr == 'x' || *fld->parse_ptr == 'X'
 		|| *fld->parse_ptr == 'p')
 		ft_print_hex(fld, fmt, ap);
