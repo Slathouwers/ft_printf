@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 08:29:07 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 12:56:26 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/23 11:17:05 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	update_precision(t_field *fld)
 	fld->parse_ptr++;
 	if (ft_isdigit(*fld->parse_ptr))
 	{
-		while (ft_isdigit(*fld->parse_ptr)) // keep doing ATOI ????
+		while (ft_isdigit(*fld->parse_ptr))
 		{
 			fld->precision = ft_atoi(fld->parse_ptr);
 			fld->parse_ptr += ft_nbr_len(fld->precision);
