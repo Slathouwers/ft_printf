@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:41:02 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/23 09:13:46 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/23 10:50:10 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,10 @@ int	main(void)
 	printf("num = %i\n", j); */
 
 	/*----------i,d,u-------*/
-	if (ft_printf("%+10.7d\n", 10) == printf("%+10.7d\n", 10))
+	/* if (ft_printf("%+10.7d\n", 10) == printf("%+10.7d\n", 10))
+		printf("OK"); */
+	if (ft_printf(" % d ", -1) == printf(" % d ", -1))
 		printf("OK");
+	
 	return (0);
 }
