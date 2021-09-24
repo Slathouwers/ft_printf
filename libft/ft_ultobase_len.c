@@ -6,13 +6,13 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 08:31:07 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/20 08:31:24 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/24 06:28:42 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_ultobase_len(unsigned long int nbr, char *base)
+size_t	ft_ultobase_len(unsigned long long int nbr, char *base)
 {
 	size_t	len;
 	size_t	baselen;

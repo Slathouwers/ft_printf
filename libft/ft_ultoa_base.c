@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_ultoa_base(unsigned long int n, char *base)
+char	*ft_ultoa_base(unsigned long long int n, char *base)
 {
 	size_t		baselen;
 	size_t		len;

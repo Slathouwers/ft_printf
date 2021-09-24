@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:23:47 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/22 10:39:55 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/24 06:30:58 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
 size_t	ft_nbr_len(int nbr);
 size_t	ft_unbr_len(unsigned int nbr);
-size_t	ft_ultobase_len(unsigned long int nbr, char *base);
+size_t	ft_ultobase_len(unsigned long long int nbr, char *base);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
@@ -80,7 +80,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_uitoa(unsigned int un);
-char	*ft_ultoa_base(unsigned long int n, char *base);
+char	*ft_ultoa_base(unsigned long long int n, char *base);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
