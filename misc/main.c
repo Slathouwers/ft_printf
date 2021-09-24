@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:41:02 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/23 10:50:10 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/24 08:34:29 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,15 @@ int	main(void)
 	/*----------i,d,u-------*/
 	/* if (ft_printf("%+10.7d\n", 10) == printf("%+10.7d\n", 10))
 		printf("OK"); */
-	if (ft_printf(" % d ", -1) == printf(" % d ", -1))
-		printf("OK");
-	
+	/* if (ft_printf(" % d ", -1) == printf(" % d ", -1))
+		printf("OK"); */
+
+	/*----------p -----------------*/
+	/* if (ft_printf("ft_printf |%-11p| |%-12p| \n", -2147483648, 2147483647) == printf("___printf |%-11p| |%-12p| \n", -2147483648, 2147483647))
+		printf("OK\n");
+	if (ft_printf("ft_printf |%-13p| |%-14p| \n", 4294967295, -4294967295 ) == printf("___printf |%-13p| |%-14p| \n", 4294967295, -4294967295))
+		printf("OK\n"); */
+	if (ft_printf("ft_printf |%#0.10.10x| |%#x| ", 0, -9223372036854775808) == printf("___printf |%#0.10.10x| |%#x| ", 0, -9223372036854775808))
+		printf("OK\n");
 	return (0);
 }
