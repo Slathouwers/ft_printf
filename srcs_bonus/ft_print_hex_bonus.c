@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 10:09:05 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/24 08:35:33 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:43:32 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,9 @@ static void
 	if (!(*str != '0' && !fld->precision))
 	{
 		if (*str != '(' && (*fld->parse_ptr == 'p' || fld->alt_form))
-		{
-			width_remainder -= 2;
-			if (fld->precision > print_len + 2)
-				width_remainder -= fld->precision;
-			else
-				width_remainder -= print_len;
-		}
-		else if (fld->precision > print_len)
-			width_remainder -= fld->precision;
+			width_remainder -= ft_max(fld->precision + 2, print_len + 2);
 		else
-			width_remainder -= print_len;
+			width_remainder -= ft_max(fld->precision, print_len);
 	}
 	while (width_remainder-- > 0)
 		fmt->num_printed += ft_putstrl_fd(padding, 1, 1);

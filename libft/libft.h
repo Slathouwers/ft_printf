@@ -6,7 +6,7 @@
 /*   By: slathouw <slathouw@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 11:23:47 by slathouw          #+#    #+#             */
-/*   Updated: 2021/09/24 06:30:58 by slathouw         ###   ########.fr       */
+/*   Updated: 2021/09/27 13:41:19 by slathouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	ft_strrev(char *str);
+long	ft_max(long a, long b);
 
 	  /////////////////
 	 //   Part - 2  //
